@@ -1,0 +1,343 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 16px;
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+  body {
+    /* Body Text (Paragraphs) */
+    font-size: 1rem; /* 16px */
+  }
+  h1 {
+    font-size: 1.5rem; /* 24px */
+  }
+  h2 {
+    font-size: 1.25rem; /* 20px */
+  }
+  h3 {
+    font-size: 1.125rem; /* 18px */
+  }
+  h4 {
+    font-size: 1rem; /* 16px */
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    /* Body Text (Paragraphs) */
+    font-size: 1.125rem; /* 18px */
+  }
+  h1 {
+    font-size: 1.875rem; /* 30px */
+  }
+  h2 {
+    font-size: 1.5rem; /* 24px */
+  }
+  h3 {
+    font-size: 1.25rem; /* 20px */
+  }
+  h4 {
+    font-size: 1.125rem; /* 18px */
+  }
+}
+
+/* Desktop (1024px and above) */
+@media (min-width: 1024px) {
+  body {
+    /* Body Text (Paragraphs) */
+    font-size: 1.125rem; /* 20px */
+  }
+  h1 {
+    font-size: 2.25rem; /* 36px */
+  }
+  h2 {
+    font-size: 1.875rem; /* 30px */
+  }
+  h3 {
+    font-size: 1.5rem; /* 24px */
+  }
+  h4 {
+    font-size: 1.25rem; /* 20px */
+  }
+}
+
+h1 {
+  /* font-size: 2.75rem; */
+  /* font-size: 4.2vw; */
+  line-height: 120%;
+  font-family: "Reem Kufi Fun", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  color: #111111;
+}
+
+h2 {
+  color: #111111;
+  font-family: "Reem Kufi Fun", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  /* font-size: 2.8rem; */
+  line-height: 140%;
+  margin: 40px 0 20px 0;
+}
+
+h3 {
+  color: #111111;
+  font-family: "Reem Kufi Fun", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  /* font-size: 2.2rem; */
+  line-height: 140%;
+  margin: 30px 0 10px 0;
+}
+
+p {
+  line-height: 160%;
+  font-family: "Noto Sans Old Persian", sans-serif;
+  font-weight: 300;
+  color: #111111;
+  /* font-size: 1.075rem; */
+}
+
+.see-more {
+  line-height: 160%;
+  font-family: "Noto Sans Old Persian", sans-serif;
+  font-weight: 300;
+  color: #111111;
+  text-decoration: underline;
+  font-size: 20px;
+  width: 100%;
+}
+
+.see-less {
+  line-height: 160%;
+  font-family: "Noto Sans Old Persian", sans-serif;
+  font-weight: 300;
+  color: #111111;
+  text-decoration: underline;
+  font-size: 20px;
+  padding-bottom: 38px;
+  width: 100%;
+}
+
+.about {
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-width: 780px;
+  padding: 4vh 0;
+}
+
+.about .text {
+  margin-bottom: 40px;
+}
+
+.banner-text {
+  padding-left: 4px;
+  @apply text-gray-500 font-bold;
+}
+
+.cash {
+  min-height: 100vh;
+}
+
+.cash {
+  @apply bg-gray-100 text-gray-800;
+}
+
+.cash-content {
+  @apply max-w-4xl;
+  margin-left: auto;
+  margin-right: auto;
+  /* padding-top: 1rem; //? Base padding */
+  padding-bottom: 1rem; /* //? Base padding */
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .cash-content {
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .cash-content {
+    padding-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cash-content {
+    padding-bottom: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cash-content {
+    padding-bottom: 3rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .cash-content {
+    padding-bottom: 3.5rem;
+  }
+}
+
+.hero {
+  max-width: 56rem;
+  padding-top: 10rem;
+  padding-bottom: 0rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  @apply bg-gray-100 text-gray-800;
+}
+
+.logo,
+.header a {
+  font-family: "Reem Kufi Fun", sans-serif;
+  font-optical-sizing: auto;
+  color: #111111;
+  font-weight: 400;
+  font-size: 1.075rem;
+}
+
+.section-col {
+  padding: 20px;
+}
+
+.title {
+  color: #808080;
+}
+
+/* //? --------- Animations ----------- */
+
+.banner-scrolling {
+  animation-duration: 16s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-;
+}
+
+.fade-in-out-vone {
+  animation-name: fade-in-out-one-v2;
+}
+
+.fade-in-out-vtwo {
+  animation-name: fade-in-out-one-v2;
+  animation-delay: 4s;
+  opacity: 0;
+}
+
+.fade-in-out-vthree {
+  animation-name: fade-in-out-one-v2;
+  animation-delay: 8s;
+  opacity: 0;
+}
+
+.fade-in-out-vfour {
+  animation-name: fade-in-out-one-v2;
+  animation-delay: 12s;
+  opacity: 0;
+}
+
+.mask {
+  animation: reveal 2.5s ease-in;
+  background: linear-gradient(transparent 0%, white 2%, white 90%, white 100%);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+}
+
+@media (min-width: 924px) {
+  .slide {
+    animation: slide 2s ease-in-out;
+    position: relative;
+    width: 100%;
+  }
+}
+
+@media (min-width: 924px) {
+  .slide-up {
+    animation: slide-up 2s ease-in-out;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100px;
+    background-color: white;
+    z-index: 10;
+  }
+}
+
+@keyframes fade-in-out-one-v2 {
+  0% {
+    opacity: 0;
+    top: 60px;
+    left: 0px;
+    transform: scale(1);
+  }
+  11.1% {
+    opacity: 1;
+    top: 0px;
+    left: 0px;
+    transform: scale(1);
+  }
+  22.2% {
+    opacity: 1;
+    top: 0px;
+    left: 0px;
+    transform: scale(1);
+  }
+  33.3% {
+    opacity: 0;
+    top: -60px;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slide {
+  0% {
+    position: absolute;
+    top: -891px;
+  }
+  100% {
+    position: absolute;
+    top: 0px;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    position: absolute;
+    top: -0px;
+  }
+  100% {
+    position: absolute;
+    top: -891px;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    height: 101%;
+  }
+  30% {
+    height: 101%;
+  }
+  100% {
+    height: 0%;
+  }
+}
