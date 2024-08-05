@@ -11,7 +11,6 @@ export default function KeyWordScroll({
             slides.length === 4
               ? { 0: "one", 1: "two", 2: "three", 3: "four" }
               : { 0: "one", 1: "two", 2: "three" };
-          console.log(i, slideArray, animationKey[i], slides.length);
           return (
             <div
               className={`absolute flex w-full justify-between banner-scrolling fade-in-out-v${animationKey[i]}`}

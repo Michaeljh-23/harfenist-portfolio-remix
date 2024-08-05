@@ -49,20 +49,20 @@ html {
 /* Desktop (1024px and above) */
 @media (min-width: 1024px) {
   body {
-    /* Body Text (Paragraphs) */
-    font-size: 1.125rem; /* 20px */
+    /* font-size: 1.125rem; 18px */
+    font-size: 1rem /* 16px */;
   }
   h1 {
-    font-size: 2.25rem; /* 36px */
+    font-size: 2.25rem;
   }
   h2 {
-    font-size: 1.875rem; /* 30px */
+    font-size: 1.875rem;
   }
   h3 {
-    font-size: 1.5rem; /* 24px */
+    font-size: 22px;
   }
   h4 {
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
   }
 }
 
@@ -110,7 +110,7 @@ p {
   font-weight: 300;
   color: #111111;
   text-decoration: underline;
-  font-size: 20px;
+  font-size: 16px;
   width: 100%;
 }
 
@@ -120,7 +120,7 @@ p {
   font-weight: 300;
   color: #111111;
   text-decoration: underline;
-  font-size: 20px;
+  font-size: 16px;
   padding-bottom: 38px;
   width: 100%;
 }
@@ -248,7 +248,7 @@ p {
 }
 
 .mask {
-  animation: reveal 2.5s ease-in;
+  animation: reveal 1.2s ease-in;
   background: linear-gradient(transparent 0%, white 2%, white 90%, white 100%);
   width: 100%;
   position: absolute;
@@ -260,9 +260,15 @@ p {
   width: 100%;
 }
 
+.resize-animation-stopper {
+  position: relative !important;
+  animation: none !important;
+  transition: none !important;
+}
+
 @media (min-width: 924px) {
   .slide {
-    animation: slide 2s ease-in-out;
+    animation: slide 1s ease-in-out;
     position: relative;
     width: 100%;
   }
@@ -270,7 +276,7 @@ p {
 
 @media (min-width: 924px) {
   .slide-up {
-    animation: slide-up 2s ease-in-out;
+    animation: slide-up 1s ease-in-out;
     position: relative;
     width: 100%;
     padding-bottom: 100px;
@@ -311,22 +317,22 @@ p {
 @keyframes slide {
   0% {
     position: absolute;
-    top: -891px;
+    top: -717px;
   }
   100% {
     position: absolute;
-    top: 0px;
+    top: -0px;
   }
 }
 
 @keyframes slide-up {
   0% {
     position: absolute;
-    top: -0px;
+    top: 0px;
   }
   100% {
     position: absolute;
-    top: -891px;
+    top: -717px;
   }
 }
 
