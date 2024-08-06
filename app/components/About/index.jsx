@@ -1,79 +1,73 @@
-import React, { useEffect } from "react";
+import { useState, useEffect } from "react";
 import KeyWordScroll from "../../common/KeyWordScroll";
 import { styled, keyframes } from "styled-components";
 
-const animateSlideUp = (height) => keyframes`
-  from {
-    top: 0px;
-  }
-  to {
-    top: -${height}px;
-  }
-`;
-
-const animateSlide = (height) => keyframes`
-  from {
-    top: -${height}px;
-  }
-  to {
-    top: 0px;
-  }
-`;
-
-const getHeight = () => {
-  return document.querySelector(".read-more-hidden")?.clientHeight;
-};
-
-const AnimateDiv = styled.div`
-  position: relative;
-  width: 100%;
-  &.slide-up {
-    animation: ${(props) => animateSlideUp(getHeight())} 1s ease-in;
-    background-color: white;
-    position: absolute !important;
-    padding-bottom: 100px;
-    z-index: 10;
-  }
-  &.slide {
-    position: absolute !important;
-    animation: ${(props) => animateSlide(getHeight())} 1s ease-in;
-  }
-`;
-
 const About = () => {
-  const handleSeeMoreToggle = () => {
-    const seeMoreContent = document.querySelector(".read-more");
-    const animateDiv = document.querySelector(".animate-div");
-    console.log(animateDiv, seeMoreContent, getHeight());
+  const [seeMore, setSeeMore] = useState(false);
+  const [slideUp, setSlideUp] = useState(false);
 
-    if (seeMoreContent.classList.contains("visible")) {
-      animateDiv.classList.add("slide-up");
-      setTimeout(() => {
-        animateDiv.classList.remove("slide-up");
-        seeMoreContent.classList.remove("visible");
-      }, 1200);
-    } else {
-      seeMoreContent.classList.add("visible");
-      animateDiv.classList.add("slide");
-      setTimeout(() => {
-        animateDiv.classList.remove("slide");
-      }, 1200);
-    }
+  const animateSlideUp = (height) => keyframes`
+  from {
+    top: 0px;
+  }
+  to {
+    top: -${height + 20}px;
+  }
+;`;
+  const animateSlide = (height) => keyframes`
+from {
+  top: -${height + 20}px;
+}
+to {
+  top: 0px;
+}
+;`;
+  const getHeight = () => {
+    return document.querySelector(".read-more-hidden").clientHeight;
   };
+
+  const AnimateDiv = slideUp
+    ? styled.div`
+        position: relative;
+        width: 100%;
+        animation: ${() => animateSlideUp(getHeight())} 1.5s ease-in;
+        background-color: white;
+        padding-bottom: 100px;
+        z-index: 10;
+      `
+    : seeMore && !slideUp
+    ? styled.div`
+        position: relative;
+        width: 100%;
+        animation: ${() => animateSlide(getHeight())} 1.5s ease-in;
+      `
+    : styled.div`
+        position: relative;
+        width: 100%;
+      `;
+
+  useEffect(() => {
+    if (slideUp) {
+      setTimeout(() => {
+        setSlideUp(false);
+      }, 1500);
+    }
+  }, [slideUp]);
 
   useEffect(() => {
     let resizeTimer;
     const handleResize = () => {
-      const slideElement = document.querySelectorAll(".animate-div");
+      const slideElement = document.querySelectorAll(".animated");
       slideElement.forEach((element) => {
         element.classList.add("resize-animation-stopper");
+        element.classList.remove("slide");
       });
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
         slideElement.forEach((element) => {
           element.classList.remove("resize-animation-stopper");
         });
-      }, 1200);
+      }, 1550);
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -81,11 +75,7 @@ const About = () => {
     };
   }, []);
 
-  let buttonText = document
-    .querySelector(".read-more")
-    ?.classList.contains("visible")
-    ? "See Less"
-    : "Read more about my experience";
+  let buttonText = seeMore ? "See Less" : "Read more about my experience";
 
   return (
     <div className="cash-content">
@@ -126,11 +116,16 @@ const About = () => {
           routine. Growing up in New Jersey, I've carried with me a love for
           diverse cultures and experiences, which continues to inspire my work
           in tech.
-          <br />
-          <br />
+          {seeMore && (
+            <>
+              <br />
+              <br />
+            </>
+          )}
         </p>
         <div className="relative">
-          <div className="relative block read-more">
+          <div className={seeMore ? "relative block read-more" : "hidden"}>
+            {/* <img src="/public/text-bg.png" /> */}
             <p>
               As a versatile problem-solver with a strong command of JavaScript
               and a keen eye for design, I thrive in fast-paced Agile
@@ -185,8 +180,20 @@ const About = () => {
         </div>
       </div>
       <div className="relative">
-        <AnimateDiv className="animate-div">
-          <button className="see-more" onClick={handleSeeMoreToggle}>
+        <AnimateDiv>
+          <button
+            className="see-more"
+            onClick={() => {
+              if (seeMore) {
+                setSlideUp(true);
+                setTimeout(() => {
+                  setSeeMore(false);
+                }, 1500);
+              } else {
+                setSeeMore(true);
+              }
+            }}
+          >
             {buttonText}
           </button>
           <div className="flex flex-col gap-2 section-col">

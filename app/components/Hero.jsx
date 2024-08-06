@@ -1,6 +1,6 @@
 import React from "react";
 
-const Hero = () => {
+const Hero = ({ onImageLoad }) => {
   return (
     <div className="hero">
       <div className="max-w-x grid grid-cols-12 items-center section-col gap-4 lg:gap-6">
@@ -8,7 +8,12 @@ const Hero = () => {
           <h1>I'm Michael - Web Developer & Software Engineer</h1>
         </div>
         <div className="col-span-4">
-          <img src="logo-harf.png" className="w-60 rounded-xl"></img>
+          <img
+            src="logo-harf.png"
+            onLoad={onImageLoad()}
+            alt="Michael Harfenist Designed Icon"
+            className="w-60 rounded-xl"
+          ></img>
         </div>
       </div>
       <div className="section-col">

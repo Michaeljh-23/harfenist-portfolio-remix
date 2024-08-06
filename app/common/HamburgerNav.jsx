@@ -1,7 +1,7 @@
-import { useState } from "react"; // import state
+import { useState } from "react";
 
 export default function HamburgerNav() {
-  const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <div className="flex items-center justify-between py-8 px-4 header">
@@ -12,7 +12,7 @@ export default function HamburgerNav() {
         <section className="flex">
           <div
             className="HAMBURGER-ICON space-y-2"
-            onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
+            onClick={() => setIsNavOpen((prev) => !prev)}
           >
             <span className="block h-0.5 w-8 bg-gray-600"></span>
             <span className="block h-0.5 w-8 bg-gray-600"></span>
@@ -22,7 +22,7 @@ export default function HamburgerNav() {
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
               className="absolute top-0 right-0 px-8 py-8"
-              onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
+              onClick={() => setIsNavOpen(false)}
             >
               <svg
                 className="h-8 w-8 text-gray-600"

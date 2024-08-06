@@ -1,4 +1,5 @@
 const ReadMoreHidden = () => {
+  // hidden in the background to be able to read height from a constant source
   return (
     <div className="!fixed top-0 items-center text-white opacity-0 z-[-1] max-w-[56rem]">
       <div className="section-col">
