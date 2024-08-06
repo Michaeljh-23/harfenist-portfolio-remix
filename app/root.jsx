@@ -6,7 +6,7 @@ export default function App() {
   return (
     <html>
       <head>
-        <link rel="icon" href="data:image/x-icon;base64,AA" />
+        <link rel="icon" type="image/x-icon" href="./public/logo-harf.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
